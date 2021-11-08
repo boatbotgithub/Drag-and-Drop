@@ -1,51 +1,54 @@
-body {
-    background-color:cadetblue;
-    margin: 0;
-    padding-left: 3%;
-}
-
-.empty {                                        
+.box {
+    background-color: rgb(37, 201, 250);
     display: inline-block;
-    height: 80px;
-    width: 80px;
-    margin: 0.2%;
-    border: 1px black solid;
-    background-color: white;
+    padding: 5px;
 }
 
+.box img {
+    width: 120px;
+    height: 120px;
+}
 
-img {                                           
+#image-list img {
+    width: 120px;
+    height: 120px;
+}
+
+.equip-slot-1 {
+    background-color: rgb(37, 201, 250);
     display: inline-block;
-    height: 80px;
-    width: 80px;
+    padding: 5px;
 }
 
-/* กล่องเนื้อหา Main */
-.container{                                     
-    display: grid;              /* รูปแบบตาราง */             
-    margin: 0;
-    width: 100vw;
-    height: 700px;
-    gap: 10px;                  /*ความห่าง*/
-    box-sizing: border-box;
-
-    grid-template-columns: 20% 10% 60% 10%;   /* สร้าง columns 4 อัน ซึ่งขนาดเรียงตามจากซ้ายไปขวา */    
-    grid-template-rows: repeat(5, 15%);       /* สร้าง row 5 อัน ซึ่งขนาดเท่ากันหมด 15% */    
-
+.equip-slot-2 {
+    background-color: rgb(37, 201, 250);
+    display: inline-block;
+    padding: 5px;
 }
 
-/* กล่องเนื้อหา ซ้าย */
-.container-left{                                
-    grid-column: 1 / 1;     /*Start_col = 1 , End_col = 1*/
-    grid-row: 1 / 6;        /*Start_row = 1 , End_row = 6*/
-    
-
+.equip-slot-3 {
+    background-color: rgb(37, 201, 250);
+    display: inline-block;
+    padding: 5px;
 }
 
-/* กล่องเนื้อหา ขวา */
-.container-right{                               
-    grid-column: 3 / 3;     /*Start_col = 3 , End_col = 3*/
-    grid-row: 1 / 6;        /*Start_row = 1 , End_row = 6*/
-    margin-top: 5%;
-    text-align: center;
+.weapon-list {
+    background-color: lightgray;
+    display: inline-block;
+    padding: 20px;
+}
+
+.equip-weapon-1, .weapon {
+    width: 120px;
+    height: 120px;
+}
+
+.equip-weapon-2, .weapon {
+    width: 120px;
+    height: 120px;
+}
+
+.equip-weapon-3, .weapon {
+    width: 120px;
+    height: 120px;
 }
