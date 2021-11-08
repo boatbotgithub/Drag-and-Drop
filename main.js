@@ -1,74 +1,97 @@
-const weapons = document.querySelectorAll('.weapon');
+const images = new Array(34).fill("").map((_, i) => `/image/${i + 1}.jpg`)
+const boxLength = 20
 
+const data = []
 
-const equipSlot1 = document.querySelector('.equip-slot-1');
-const equipWeapon1 = document.querySelector('.equip-weapon-1');
-
-
-const equipSlot2 = document.querySelector('.equip-slot-2');
-const equipWeapon2 = document.querySelector('.equip-weapon-2');
-
-const equipSlot3 = document.querySelector('.equip-slot-3');
-const equipWeapon3 = document.querySelector('.equip-weapon-3');
-
-
-
-
-
-// 1. Drag - box เเรก
-function dragWeapon(event) {
-    event.dataTransfer.setData('text/plain', event.target.id);
-    console.log(event.target);
+let select = {
+    type: "insert",
+    url: ""
 }
-weapons.forEach((weapon) => {
-    weapon.addEventListener('dragstart', dragWeapon);
-});
 
-// 2. Drop box เเรก
-// >> https://codepen.io/bradtraversy/pen/odmVgN
-// ฟังชั่นนี้จะทำงานเมื่อมีการลากไปจัดจุด box
-function dragOverWeapon(event) {
-    event.preventDefault();
+const IMAGE_LSIT = document.getElementById("image-list")
+const BOX_CONTAINER = document.getElementById("box-container")
+
+// สร้าง html
+const init = () => {
+
+    /// สร้างเป็น list เอาไว้ เพื่อไป interetive
+    images.forEach((e, i) => {
+        IMAGE_LSIT.innerHTML += `<img class="image-pick" id="pick-${i + 1}" src="${e}" />`
+    })
+
+
+    for (let i = 0; i < boxLength; i++) {
+        BOX_CONTAINER.innerHTML += `<div class="box"> <img src="/image/0.png" /> </div> `
+
+    }
 }
-function dropWeapon1(event) {
-    console.log("drop")
-    event.preventDefault();
-    if(!event.dataTransfer) return console.log('box one None input');
-    // จะเก็บ id class ที่เราวางลง
-    const id = event.dataTransfer.getData('text/plain');
-    const image = document.querySelector('#' + id);
-    equipWeapon1.src = image.src;
+
+const imageEvent = {
+    dragstart(e) {
+        select = {
+            type: "insert",
+            url: event.target.src
+        }
+    },
+
 }
 
 
-function dropWeapon2(event) {
- 
-    event.preventDefault();
-    if(!event.dataTransfer) return console.log('box one None input');
-    // จะเก็บ id class ที่เราวางลง
-    const id = event.dataTransfer.getData('text/plain');
-    const image = document.querySelector('#' + id);
-    equipWeapon2.src = image.src
+
+const run = () => {
+
+    const BOXES = document.querySelectorAll(".box")
+    const PICKERS = document.querySelectorAll(".image-pick")
+
+
+    PICKERS.forEach((e) => {
+        e.addEventListener('dragstart', imageEvent.dragstart);
+    });
+
+    // e => element
+    BOXES.forEach((box, i) => {
+
+        box.addEventListener("dragover", (e) => {
+
+            e.preventDefault()
+        })
+
+        box.addEventListener("dragstart", (e) => {
+            if (data[i]) {
+                select = {
+                    index: i,
+                    type: "move",
+                    url: data[i]
+                }
+            }
+
+        })
+
+        box.addEventListener("drop", (e) => {
+            e.preventDefault();
+            if (!select) return
+
+            // จะเก็บ id class ที่เราวางลง
+
+            const [boxImg] = box.children
+
+
+            if (select.type === "move") {
+                data[select.index] = undefined
+                BOXES[select.index].children[0].src = "/image/0.png"
+            }
+
+            data[i] = select.url
+
+            boxImg.src = select.url
+            select = null
+
+        })
+    })
 }
 
-function dropWeapon3(event) {
-    event.preventDefault();
-    if(!event.dataTransfer) return console.log('box one None input');
-    // จะเก็บ id class ที่เราวางลง
-    const id = event.dataTransfer.getData('text/plain');
-    const image = document.querySelector('#' + id);
-    equipWeapon3.src = image.src;
+const main = () => {
+    init()
+    run()
 }
-
-
-equipSlot1.addEventListener('dragover', dragOverWeapon);
-equipSlot1.addEventListener('drop', dropWeapon1);
-
-
-equipSlot2.addEventListener('dragover', dragOverWeapon);
-equipSlot2.addEventListener('drop', dropWeapon2);
-
-equipSlot3.addEventListener('dragover', dragOverWeapon);
-equipSlot3.addEventListener('drop', dropWeapon3);
-
-
+main()
