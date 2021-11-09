@@ -1,4 +1,4 @@
-const images = new Array(34).fill("").map((_, i) => `/image/${i + 1}.jpg`)
+const images = new Array(24).fill("").map((_, i) => `/image/${i + 1}.jpg`)
 const boxLength = 28;
 
 const data = []
