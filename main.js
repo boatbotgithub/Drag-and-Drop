@@ -1,5 +1,5 @@
 const images = new Array(34).fill("").map((_, i) => `/image/${i + 1}.jpg`)
-const boxLength = 20
+const boxLength = 28;
 
 const data = []
 
@@ -17,12 +17,17 @@ const init = () => {
     /// สร้างเป็น list เอาไว้ เพื่อไป interetive
     images.forEach((e, i) => {
         IMAGE_LSIT.innerHTML += `<img class="image-pick" id="pick-${i + 1}" src="${e}" />`
+        if (++i % 4 == 0){
+            IMAGE_LSIT.innerHTML += `<br>`
+        }
     })
 
 
-    for (let i = 0; i < boxLength; i++) {
+    for (let i = 1; i < boxLength+1; i++) {
         BOX_CONTAINER.innerHTML += `<div class="box"> <img src="/image/0.png" /> </div> `
-
+        if (i % 4 == 0){
+            BOX_CONTAINER.innerHTML += `<br>`
+        }
     }
 }
 

@@ -5,27 +5,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <title>Design Graden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   </link>
 
 </head>
 
 <body>
-  <div id="box-container">
+  <div class="H">
+    <h1>Design Green Wall</h1>
 
   </div>
-  <br>
 
-  <div>
-    <div id="image-list">
-
+  <!--- กล่องที่เอาไว้ใส่ต้นไม้ลง -->
+  <div class="container">
+    <div class="container-right">
+      <div id="box-container">
+      </div>
     </div>
+
+    <!-- กล่อง ซ้าย-บน -->
+    <div class="container-left-top">
+      <select class="dropdown" id="Size">
+        <option disabled selected>Size</option>
+        <option value=20> 20 Block (4x5) </option>
+        <option value=28> 28 Block (4x7) </option>
+        <option value=30> 30 Block (5x6) </option>
+        <option value=56> 56 Block (8x7) </option>
+      </select>
+      <br>
+      <select class="dropdown" id="Cost">
+        <option disabled selected>Cost</option>
+      </select>
+      <br>
+      <select class="dropdown" id="Function">
+        <option disabled selected>Function</option>
+      </select>
+      <br>
+
+      <button class="Button-design">Design</button>
+    </div>
+
+    <!-- กล่อง ซ้าย-ล่าง -->
+    <div class="container-left-bottom">
+      <div id="image-list">
+      </div>
+    </div>
+
   </div>
 
-  <script src="./main.js">
-    
-  </script>
+  <script src="./main.js"></script>
 </body>
 
 </html>
