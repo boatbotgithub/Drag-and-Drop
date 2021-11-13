@@ -37,8 +37,10 @@ body {
 }
 
 .container-left-bottom {
+    width: 300px;      /*กำหนดเพราะ scrollbar จะไม่สวย*/
     grid-column: 1 / 1;     /*Start_col = 1 , End_col = 1*/
     grid-row: 2 / 4;        /*Start_row = 1 , End_row = 6*/
+    overflow-x: scroll;    /* scrollbar */
 }
 
 .container-left-top {
@@ -50,19 +52,20 @@ body {
     display: inline-block;
     text-align: center;
     margin: 0.5px;
+    border: 1px  black;
 }
 
 .box img{
-    width: 70px;
-    height: 70px;
-    border: 2px black solid;
+    width: 90px;
+    height: 90px;
+    
 }
 
 #image-list img {
     width: 65px;
     height: 65px;
     border: 1px black solid;
-    margin-left: 3px;
+    /* ชิดทางด้านขว้า */
 }
 
 .dropdown {
