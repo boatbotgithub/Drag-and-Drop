@@ -1,5 +1,4 @@
-const images = new Array(36).fill("").map((_, i) => `image/${i + 1}.jpg`)
-const boxLength = 56;
+const boxLength = 28;
 
 const data = []
 
@@ -17,7 +16,7 @@ const SEARCH_BTN = document.querySelector("#search-btn")
 const renderImages = (imgs = []) => {
     IMAGE_LSIT.innerHTML = "";
     imgs.forEach(e => {
-        IMAGE_LSIT.innerHTML += `<img class="image-pick" id="pick-${e.id}" src="${e.image}" />`
+        IMAGE_LSIT.innerHTML += `<img class ="image-pick" id="pick-${e.id}" src="${e.image}" />`
     })
 }
 
@@ -30,7 +29,7 @@ const rerenderImagePicker = () => setTimeout(() => {
 const init = () => {
     for (let i = 1; i < boxLength + 1; i++) {
         BOX_CONTAINER.innerHTML += `<div class="box"> <img src="image/0.png" /> </div> `
-        if (i % 7 == 0) {
+        if (i % 4 == 0) {
             BOX_CONTAINER.innerHTML += `<br>`
         }
     }
