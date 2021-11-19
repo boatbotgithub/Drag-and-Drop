@@ -4,7 +4,8 @@ const PICTURE = document.querySelectorAll('.box-form')
 const GroupBox = document.querySelectorAll('.group-box')
 
 const BoxChingSize = () => {
-    //if(data.length !== 28) return alert("ยังออกเเบบยังไม่เสร็จ") 
+    
+    if(data.length !== 28) return alert("ยังออกเเบบยังไม่เสร็จ") 
     BOX.forEach((e) => {
         e.style.marginLeft = "-20px"
         e.style.marginRight = "-20px"
